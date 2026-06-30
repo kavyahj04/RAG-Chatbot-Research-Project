@@ -1,0 +1,11 @@
+langchain
+langchain-text-splitters
+tiktoken
+python-frontmatter
+openai
+chromadb
+networkx
+numpy
+python-dotenv
+fastapi
+uvicorn[standard]

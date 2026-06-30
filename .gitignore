@@ -1,0 +1,22 @@
+# Python
+rag/venv/
+rag/__pycache__/
+*.pyc
+rag/.env
+rag/.gradio/
+
+# Generated RAG data (large, regenerate via chunking.py / embed_chunks.py / build_graph.py)
+rag/chroma_db/
+rag/embeddings.json
+rag/chunks.json
+rag/graph.pkl
+rag/eval_results.json
+rag/qa_dataset.json
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/*.local
+
+# OS
+.DS_Store
