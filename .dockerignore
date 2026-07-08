@@ -1,0 +1,11 @@
+rag/venv/
+rag/__pycache__/
+rag/*.pyc
+rag/.gradio/
+rag/.env
+rag/embeddings.json
+rag/chunks.json
+rag/eval_results.json
+rag/qa_dataset.json
+frontend/
+.git/
