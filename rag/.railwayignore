@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.gradio/
+.env
+embeddings.json
+chunks.json
+qa_dataset.json
+eval_results.json

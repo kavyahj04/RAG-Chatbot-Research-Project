@@ -9,26 +9,40 @@ load_dotenv(override=True)
 client = OpenAI()
 EMBED_MODEL = "text-embedding-3-small"
 
-# ── Load data once at startup ─────────────────────────────────────────
+# ── Load data lazily ───────────────────────────────────────────────────
+# chunks.json / embeddings.json are only needed by retrieve() (unused by the
+# API, which searches via chromadb instead) — load on first use, not on import.
 
-with open("chunks.json", "r", encoding="utf-8") as f:
-    _chunks = json.load(f)
+_chunks = None
+_embeddings_data = None
+_chunk_index = None
+_chunk_ids = None
+_matrix = None
 
-with open("embeddings.json", "r", encoding="utf-8") as f:
-    _embeddings_data = json.load(f)
 
-# index chunks by chunk_id for fast lookup
-_chunk_index = {c["metadata"]["chunk_id"]: c for c in _chunks}
+def _ensure_loaded():
+    global _chunks, _embeddings_data, _chunk_index, _chunk_ids, _matrix
+    if _matrix is not None:
+        return
 
-# build numpy matrix: shape (N, dims)
-_chunk_ids = [e["chunk_id"] for e in _embeddings_data]
-_matrix = np.array([e["embedding"] for e in _embeddings_data], dtype=np.float32)
+    with open("chunks.json", "r", encoding="utf-8") as f:
+        _chunks = json.load(f)
 
-# pre-normalize rows so dot product == cosine similarity
-_norms = np.linalg.norm(_matrix, axis=1, keepdims=True)
-_matrix = _matrix / np.where(_norms == 0, 1, _norms)
+    with open("embeddings.json", "r", encoding="utf-8") as f:
+        _embeddings_data = json.load(f)
 
-print(f"Retriever ready: {len(_chunks)} chunks, matrix {_matrix.shape}")
+    # index chunks by chunk_id for fast lookup
+    _chunk_index = {c["metadata"]["chunk_id"]: c for c in _chunks}
+
+    # build numpy matrix: shape (N, dims)
+    _chunk_ids = [e["chunk_id"] for e in _embeddings_data]
+    _matrix = np.array([e["embedding"] for e in _embeddings_data], dtype=np.float32)
+
+    # pre-normalize rows so dot product == cosine similarity
+    _norms = np.linalg.norm(_matrix, axis=1, keepdims=True)
+    _matrix = _matrix / np.where(_norms == 0, 1, _norms)
+
+    print(f"Retriever ready: {len(_chunks)} chunks, matrix {_matrix.shape}")
 
 
 # ── Core functions ────────────────────────────────────────────────────
@@ -76,6 +90,7 @@ def retrieve(question: str, top_k: int = 5) -> list[dict]:
     Rewrite question → embed each variant → cosine search → deduplicated top chunks.
     Returns list of chunks with text, metadata, and similarity score.
     """
+    _ensure_loaded()
     variants = rewrite_query(question)
 
     seen: dict[str, float] = {}  # chunk_id → best score
