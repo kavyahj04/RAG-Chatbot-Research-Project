@@ -63,7 +63,6 @@ function App() {
     <div className="app">
       <header className="header">
         <h1>Security Handbook Assistant</h1>
-        <p>Ask questions about GitLab's security policies and handbook. Powered by RAG + Knowledge Graph.</p>
       </header>
 
       <main className="chat">

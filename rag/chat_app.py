@@ -10,7 +10,7 @@ def chat(user_message, history):
 demo = gr.ChatInterface(
     fn=chat,
     title="Security Handbook Assistant",
-    description="Ask questions about GitLab's security policies and handbook. Powered by RAG + Knowledge Graph.",
+    description="",
     examples=[
         "What is the VPN policy?",
         "What happens if I find a vulnerability?",

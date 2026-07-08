@@ -70,7 +70,8 @@
   max-width: 80%;
   padding: 12px 16px;
   border-radius: 16px;
-  background: var(--code-bg);
+  background: var(--bubble-bg);
+  color: var(--text-h);
 }
 
 .message.user .bubble {
