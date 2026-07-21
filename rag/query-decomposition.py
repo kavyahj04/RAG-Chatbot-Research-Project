@@ -97,11 +97,40 @@ def answer_sub_questions(subquestions):
     )
     return response.choices[0].message.parsed.answers
 
+def generate_synthesis_prompt(original_query, answers):
+    qa_text = ""
+    for a in answers:
+        qa_text += f"\nSub-question: {a.question}\nAnswer: {a.answer}\n"
 
+    return f"""You have broken a user's question down into simpler sub-questions,
+    and answered each one individually using retrieved policy context.
+
+    Original question: {original_query}
+
+    Sub-questions and their answers:
+    {qa_text}
+
+    Using the answers above, write one clear, direct answer to the original question.
+    Combine the sub-answers naturally instead of just listing them separately.
+    If any sub-answer indicates the information could not be found, mention that
+    limitation in your final answer instead of ignoring it.
+    """
+
+def synthesize_answer(original_query, answers):
+    prompt = generate_synthesis_prompt(original_query, answers)
+
+    response = client.chat.completions.create(
+        model = "gpt-4o-mini",
+        messages = [{"role":"user", "content":prompt},
+        ],
+        temperature=0
+    )
+    return response.choices[0].message.content.strip()
+   
 if __name__ == "__main__":
    query = "What is the SLA for critical vulnerabilities and who approves exceptions to it?"
    sub_questions = decompose_query(query)
    answers = answer_sub_questions(sub_questions)
-   for a in answers:
-        print(f"\nQ: {a.question}\nA: {a.answer}")
-    
+   final_answer = synthesize_answer(query, answers)
+   print("\nFinal Answer:")
+   print(final_answer)
