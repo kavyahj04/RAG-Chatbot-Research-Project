@@ -128,7 +128,7 @@ def synthesize_answer(original_query, answers):
     return response.choices[0].message.content.strip()
    
 if __name__ == "__main__":
-   query = "What is the SLA for critical vulnerabilities and who approves exceptions to it?"
+   query = "I'm designing an internal audit. For each of the following, tell me who has to approve it and what document governs it: (a) granting a contractor access to an internal Google Workspace group, (b) requesting a permanent exception to a vulnerability SLA, (c) adjusting the severity label on an already-triaged security incident."
    sub_questions = decompose_query(query)
    answers = answer_sub_questions(sub_questions)
    final_answer = synthesize_answer(query, answers)
