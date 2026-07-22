@@ -6,10 +6,9 @@
         "Staff",
         "User",
         "Agent",
-        "Team member",
-        "Contact"
+        "Team member"
       ],
-      "name": "Actor"
+      "name": "Person"
     },
     {
       "merged_from": [
@@ -26,7 +25,7 @@
         "Department",
         "Leadership"
       ],
-      "name": "Organization"
+      "name": "Organization or Leadership"
     },
     {
       "merged_from": [
@@ -69,9 +68,7 @@
         "Page",
         "Guide",
         "Report",
-        "File",
-        "Email",
-        "Communication"
+        "File"
       ],
       "name": "Document"
     },
@@ -135,6 +132,9 @@
         "Endpoint url",
         "Api url",
         "Contact_method",
+        "Email",
+        "Communication",
+        "Contact",
         "Button"
       ],
       "name": "Interface or Channel"
@@ -190,7 +190,7 @@
         "Registration",
         "Membership"
       ],
-      "name": "Record or Request"
+      "name": "Record or Request or Ticket"
     },
     {
       "merged_from": [
@@ -255,8 +255,6 @@
   "relationship_types": [
     {
       "merged_from": [
-        "ESTIMATED_AT",
-        "DETERMINED_AS",
         "SET_AT",
         "HAS",
         "IS",
@@ -276,7 +274,6 @@
         "HAS_CHANNEL",
         "CONFIGURED_AS",
         "KEY_USE",
-        "BASED_ON",
         "TAGGED_BY",
         "TAGGED_FOR",
         "HAS_IMPACT",
@@ -309,11 +306,9 @@
         "LINKS_TO",
         "LINK",
         "ASSOCIATED_WITH",
-        "INFORMATION_ABOUT",
         "RELATED",
         "LINKED_TO",
         "AGREES_WITH",
-        "CONSISTENT_WITH",
         "HAS_PRIMARY_MENTOR"
       ],
       "name": "RELATED_TO"
@@ -415,8 +410,7 @@
         "UPDATES",
         "RESET",
         "REFRESHES",
-        "TAILORS",
-        "SYNC"
+        "TAILORS"
       ],
       "name": "UPDATES"
     },
@@ -567,7 +561,6 @@
     {
       "merged_from": [
         "REINFORCE",
-        "REQUIRES_PROTECTION",
         "MAKES_CONFIDENTIAL",
         "PROTECTS",
         "ASSURES",
@@ -608,7 +601,6 @@
         "GRANTED_ACCESS",
         "ACCESSIBLE_TO",
         "ACCESS",
-        "AVAILABLE_IN",
         "AVAILABLE_ON",
         "INVITED_TO_JOIN",
         "INVITES_TO",
@@ -722,9 +714,6 @@
     {
       "merged_from": [
         "IDENTIFY",
-        "INFORMS",
-        "MAINTAIN",
-        "REVIEW",
         "GATHER_OUTPUT",
         "INITIATE",
         "TRIAGE",
@@ -733,10 +722,17 @@
         "IDENTIFIES",
         "GATHERS",
         "ATTEMPTS",
-        "FACILITATES_AUDIT",
-        "PROVIDES_INSIGHT"
+        "FACILITATES_AUDIT"
       ],
       "name": "PERFORMS_ACTIVITY"
+    },
+    {
+      "name": "DERIVED_FROM",
+      "merged_from": [
+        "ESTIMATED_AT",
+        "DETERMINED_AS",
+        "BASED_ON"
+      ]
     }
   ]
 }
