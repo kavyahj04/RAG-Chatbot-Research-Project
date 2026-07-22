@@ -1,0 +1,742 @@
+{
+  "node_types": [
+    {
+      "merged_from": [
+        "Person",
+        "Staff",
+        "User",
+        "Agent",
+        "Team member",
+        "Contact"
+      ],
+      "name": "Actor"
+    },
+    {
+      "merged_from": [
+        "Role",
+        "Account type",
+        "Customer_type"
+      ],
+      "name": "Role"
+    },
+    {
+      "merged_from": [
+        "Company",
+        "Organization",
+        "Department",
+        "Leadership"
+      ],
+      "name": "Organization"
+    },
+    {
+      "merged_from": [
+        "Team",
+        "Committee",
+        "Group",
+        "Board",
+        "Council"
+      ],
+      "name": "Organizational Unit"
+    },
+    {
+      "merged_from": [
+        "Process",
+        "System process",
+        "Methodology"
+      ],
+      "name": "Process"
+    },
+    {
+      "merged_from": [
+        "Activity",
+        "Event",
+        "Behavior",
+        "Use case"
+      ],
+      "name": "Activity"
+    },
+    {
+      "merged_from": [
+        "Program",
+        "Project",
+        "Plan"
+      ],
+      "name": "Initiative"
+    },
+    {
+      "merged_from": [
+        "Document",
+        "Page",
+        "Guide",
+        "Report",
+        "File",
+        "Email",
+        "Communication"
+      ],
+      "name": "Document"
+    },
+    {
+      "merged_from": [
+        "Policy",
+        "Regulation",
+        "Requirement",
+        "Standard",
+        "Guideline",
+        "System requirement",
+        "Condition",
+        "Criteria"
+      ],
+      "name": "Policy or Requirement"
+    },
+    {
+      "merged_from": [
+        "System",
+        "Service",
+        "Application",
+        "Platform",
+        "Zendeskinstance"
+      ],
+      "name": "System or Service"
+    },
+    {
+      "merged_from": [
+        "Tool",
+        "Tooling",
+        "Software",
+        "Repository",
+        "Package",
+        "Versioning"
+      ],
+      "name": "Software or Tool"
+    },
+    {
+      "merged_from": [
+        "Feature",
+        "Component",
+        "Component type",
+        "Sub type"
+      ],
+      "name": "Component"
+    },
+    {
+      "merged_from": [
+        "Environment_variable",
+        "Environment variable",
+        "Variable",
+        "Parameter",
+        "Field",
+        "Environment"
+      ],
+      "name": "Configuration Item"
+    },
+    {
+      "merged_from": [
+        "Channel",
+        "Endpoint url",
+        "Api url",
+        "Contact_method",
+        "Button"
+      ],
+      "name": "Interface or Channel"
+    },
+    {
+      "merged_from": [
+        "Data",
+        "Data type",
+        "Data format",
+        "Data classification",
+        "Source",
+        "Evidence"
+      ],
+      "name": "Data or Evidence"
+    },
+    {
+      "merged_from": [
+        "Threat",
+        "Threat area",
+        "Vulnerability",
+        "Flaw",
+        "Abuse type",
+        "Risk",
+        "Incident type",
+        "Bounty"
+      ],
+      "name": "Security Finding or Risk"
+    },
+    {
+      "merged_from": [
+        "Security method",
+        "Biometric",
+        "Credential",
+        "Token",
+        "License"
+      ],
+      "name": "Security Control or Credential"
+    },
+    {
+      "merged_from": [
+        "Device",
+        "Resource",
+        "Asset",
+        "Vault"
+      ],
+      "name": "Asset or Resource"
+    },
+    {
+      "merged_from": [
+        "Issue",
+        "Ticket",
+        "Request type",
+        "Registration",
+        "Membership"
+      ],
+      "name": "Record or Request"
+    },
+    {
+      "merged_from": [
+        "Topic area",
+        "Concept",
+        "Category",
+        "Label",
+        "Tag",
+        "Domain",
+        "Entity"
+      ],
+      "name": "Taxonomy Concept"
+    },
+    {
+      "merged_from": [
+        "Metric",
+        "Value",
+        "Priority",
+        "Satisfaction",
+        "Impact level"
+      ],
+      "name": "Measurement or Rating"
+    },
+    {
+      "merged_from": [
+        "Status",
+        "Issue status",
+        "Decision",
+        "Else"
+      ],
+      "name": "State or Decision"
+    },
+    {
+      "merged_from": [
+        "Date",
+        "Day",
+        "Date component"
+      ],
+      "name": "Time"
+    },
+    {
+      "merged_from": [
+        "Location",
+        "Territory"
+      ],
+      "name": "Location"
+    },
+    {
+      "merged_from": [
+        "List",
+        "Queue"
+      ],
+      "name": "Collection or Queue"
+    },
+    {
+      "merged_from": [
+        "Culture"
+      ],
+      "name": "Culture"
+    }
+  ],
+  "relationship_types": [
+    {
+      "merged_from": [
+        "ESTIMATED_AT",
+        "DETERMINED_AS",
+        "SET_AT",
+        "HAS",
+        "IS",
+        "INTENT",
+        "DEFINED_BY",
+        "DETERMINES_ACTIVITY",
+        "HAS_ACCOUNT_TYPE",
+        "HAS_ITERATION",
+        "HAS_STATUS",
+        "HAS_LABEL",
+        "DEFAULT_FOR_NEW_ISSUES",
+        "IS_TITLED_AS",
+        "IS_FOR",
+        "CURRENT_STATE",
+        "ROADMAP",
+        "HAS_PERMISSION_LEVELS",
+        "HAS_CHANNEL",
+        "CONFIGURED_AS",
+        "KEY_USE",
+        "BASED_ON",
+        "TAGGED_BY",
+        "TAGGED_FOR",
+        "HAS_IMPACT",
+        "SETS"
+      ],
+      "name": "HAS_ATTRIBUTE"
+    },
+    {
+      "merged_from": [
+        "CARRIES",
+        "COVERS",
+        "INCLUDES",
+        "CONTAINS",
+        "WRAPS",
+        "HAS_MEMBER",
+        "PAGES",
+        "HAS_SUBSYSTEM",
+        "PART_OF",
+        "CONSISTS_OF",
+        "HOUSES",
+        "HOLDING",
+        "SUPPLEMENT"
+      ],
+      "name": "INCLUDES"
+    },
+    {
+      "merged_from": [
+        "REFERENCES",
+        "RELATED_TO",
+        "LINKS_TO",
+        "LINK",
+        "ASSOCIATED_WITH",
+        "INFORMATION_ABOUT",
+        "RELATED",
+        "LINKED_TO",
+        "AGREES_WITH",
+        "CONSISTENT_WITH",
+        "HAS_PRIMARY_MENTOR"
+      ],
+      "name": "RELATED_TO"
+    },
+    {
+      "merged_from": [
+        "REQUIRES",
+        "REQUIRE_FOLLOWING",
+        "REQUIRE_ACTION",
+        "REQUIRES_PROTECTION",
+        "REQUIRES_CONFIRMATION",
+        "REQUIRES_AUTHENTICATION_PROMPT",
+        "REQUIRED_ON",
+        "APPROVAL_REQUIRED"
+      ],
+      "name": "REQUIRES"
+    },
+    {
+      "merged_from": [
+        "DEPENDS_ON"
+      ],
+      "name": "DEPENDS_ON"
+    },
+    {
+      "merged_from": [
+        "HAS_ROLE",
+        "MANAGER",
+        "ANALYST",
+        "PROGRAM_MANAGER",
+        "ENGINEER",
+        "ENG_MANAGER",
+        "STAFF_ENGINEER"
+      ],
+      "name": "HAS_ROLE"
+    },
+    {
+      "merged_from": [
+        "OWNS",
+        "LEADS",
+        "RESPONSIBLE_FOR",
+        "IMPLEMENTED_BY",
+        "ASSIGNED_TO",
+        "ASSIGNS",
+        "ASSIGN",
+        "MANAGES",
+        "HANDLES",
+        "DRI'D_BY",
+        "TAKES_ON_RESPONSIBILITY",
+        "REPORT_TO"
+      ],
+      "name": "RESPONSIBLE_FOR"
+    },
+    {
+      "merged_from": [
+        "APPROVES_ASSIGNMENT",
+        "APPROVES_IMPERSONATION",
+        "APPROVES_MEMBERSHIP",
+        "APPROVES_TOKEN",
+        "APPROVES_REGISTRATION"
+      ],
+      "name": "APPROVES"
+    },
+    {
+      "merged_from": [
+        "HIGH_PRIORITY_ACCESS_REQUEST",
+        "LOW_PRIORITY_ACCESS_REQUEST",
+        "HIGH_PRIORITY_DAY_TO_DAY_REQUEST",
+        "LOW_PRIORITY_DAY_TO_DAY_REQUEST",
+        "PROJECT_FIRE_DRILL",
+        "REQUESTS",
+        "SUBMITTED_TO",
+        "SUBMITS",
+        "CAN_SUBMIT",
+        "ASKS_ON",
+        "SUBMITS_ISSUE"
+      ],
+      "name": "REQUESTS"
+    },
+    {
+      "merged_from": [
+        "DRAFT",
+        "CREATED_BY",
+        "WROTE",
+        "CREATE",
+        "CREATES",
+        "ADD_REPORT",
+        "GENERATES",
+        "ADDS_INFORMATION_TO",
+        "CREATES_COMMENT_ON",
+        "DOCUMENTS_CONCERNS",
+        "BUILDING"
+      ],
+      "name": "CREATES"
+    },
+    {
+      "merged_from": [
+        "ADDS",
+        "UPDATE",
+        "UPDATES",
+        "RESET",
+        "REFRESHES",
+        "TAILORS",
+        "SYNC"
+      ],
+      "name": "UPDATES"
+    },
+    {
+      "merged_from": [
+        "PROVIDES_INSIGHT",
+        "PROVIDE_INTERFACE",
+        "PROVIDES",
+        "OFFERS",
+        "SHOWS",
+        "RECOMMENDS",
+        "PROVIDES_GUIDELINES",
+        "RESOURCE_FOR_QUESTIONS",
+        "RECEIVES"
+      ],
+      "name": "PROVIDES"
+    },
+    {
+      "merged_from": [
+        "LEVERAGES",
+        "USES",
+        "EMPLOYS",
+        "USED_IN",
+        "DOES_NOT_USE"
+      ],
+      "name": "USES"
+    },
+    {
+      "merged_from": [
+        "IMPLEMENTS",
+        "AUTOMATES",
+        "MANAGED_VIA"
+      ],
+      "name": "IMPLEMENTS_OR_CONFIGURES"
+    },
+    {
+      "merged_from": [
+        "RUNS_IN",
+        "RUNS_ON",
+        "DEPLOYS_TO",
+        "TEST_ON"
+      ],
+      "name": "RUNS_OR_DEPLOYS_ON"
+    },
+    {
+      "merged_from": [
+        "CONNECTS",
+        "INTEGRATES_WITH",
+        "WORKING_IN_CONJUNCTION_WITH",
+        "SYNC"
+      ],
+      "name": "INTEGRATES_WITH"
+    },
+    {
+      "merged_from": [
+        "CONTACTS",
+        "FORWARD_TO",
+        "NOTIFIES_EMPLOYMENT_STATUS",
+        "COORDINATES_WITH",
+        "COMMENT",
+        "COMMUNICATE",
+        "POSTS_MESSAGE",
+        "NOTIFIES",
+        "NOTIFICATION",
+        "COMMUNICATES_THROUGH",
+        "MENTIONS_ON",
+        "COMMUNICATED_TO",
+        "CONTACT_VIA",
+        "NOTIFY_IF_ISSUE"
+      ],
+      "name": "COMMUNICATES_WITH"
+    },
+    {
+      "merged_from": [
+        "WORKS_WITH",
+        "ENGAGED_IN_RESPONSE",
+        "INVOLVES",
+        "INTERACTS_WITH",
+        "WORKS_ON",
+        "ENGAGES",
+        "COLLABORATES",
+        "PARTNERS_WITH",
+        "PARTICIPATES_IN",
+        "CONSULTS",
+        "INVOLVED_WHEN_NECESSARY"
+      ],
+      "name": "PARTICIPATES_IN"
+    },
+    {
+      "merged_from": [
+        "REVIEW",
+        "REVIEWS_TOKEN_USAGE",
+        "CHECKS",
+        "VALIDATE",
+        "REVIEWED_BY",
+        "COMPARES",
+        "WILL_REVIEW",
+        "VALIDATES",
+        "CONSIDERS",
+        "CHECK_EXCEPTION"
+      ],
+      "name": "REVIEWS_OR_VALIDATES"
+    },
+    {
+      "merged_from": [
+        "LOGS_MONITORING",
+        "MONITORS",
+        "TRACKS",
+        "MONITORING_POLICY",
+        "MONITOR"
+      ],
+      "name": "MONITORS"
+    },
+    {
+      "merged_from": [
+        "CLASSIFIES",
+        "CLASSIFIED_AS",
+        "CATEGORIZES",
+        "IS_TYPE_OF",
+        "INSTANCE_OF"
+      ],
+      "name": "CLASSIFIES_AS"
+    },
+    {
+      "merged_from": [
+        "TRIGGERS",
+        "RESULTS_IN",
+        "IMPACTS",
+        "INTERFERES_WITH",
+        "CONTRIBUTES_TO",
+        "MAY_RESULT_IN"
+      ],
+      "name": "RESULTS_IN"
+    },
+    {
+      "merged_from": [
+        "STRENGTHENS",
+        "SUPPORTS",
+        "ASSISTS",
+        "SUPPORTED_BY",
+        "ENABLES",
+        "ENABLED",
+        "FACILITATES",
+        "DOES_NOT_SUPPORT"
+      ],
+      "name": "SUPPORTS_OR_ENABLES"
+    },
+    {
+      "merged_from": [
+        "REINFORCE",
+        "REQUIRES_PROTECTION",
+        "MAKES_CONFIDENTIAL",
+        "PROTECTS",
+        "ASSURES",
+        "PREVENTS_LEAKAGE",
+        "ENSURES"
+      ],
+      "name": "PROTECTS"
+    },
+    {
+      "merged_from": [
+        "RETAINED_FOR_DEFINED_PERIOD",
+        "LIMITED_ACCESS",
+        "REVOKES_UNNECESSARY_TOKEN",
+        "REVOKES_COMPROMISED_TOKEN",
+        "REVOKES_ON_MEMBER_LEAVING",
+        "PROHIBITS",
+        "REVOKE",
+        "AVOID_DISTRACTION",
+        "LIMITED_TO",
+        "NOT_AUTHORIZED",
+        "LIMITS_INTERACTION",
+        "DOES_NOT_GRANT_PRIORITY_RIGHTS"
+      ],
+      "name": "RESTRICTS_OR_REVOKES"
+    },
+    {
+      "merged_from": [
+        "FOLLOWS",
+        "SUBJECT_TO",
+        "APPLIES_TO",
+        "CONSISTENT_WITH"
+      ],
+      "name": "FOLLOWS_OR_APPLIES_TO"
+    },
+    {
+      "merged_from": [
+        "EXPOSED_TO",
+        "GRANTED_ACCESS",
+        "ACCESSIBLE_TO",
+        "ACCESS",
+        "AVAILABLE_IN",
+        "AVAILABLE_ON",
+        "INVITED_TO_JOIN",
+        "INVITES_TO",
+        "ELIGIBLE_FOR"
+      ],
+      "name": "HAS_ACCESS"
+    },
+    {
+      "merged_from": [
+        "EXISTS_IN",
+        "COMES_FROM",
+        "OCCURS_ON",
+        "LOCATES",
+        "AVAILABLE_IN"
+      ],
+      "name": "EXISTS_IN"
+    },
+    {
+      "merged_from": [
+        "TRANSITION_TO",
+        "SWITCHED_TO",
+        "PAUSES",
+        "DISCONTINUED_FOR",
+        "INITIATED",
+        "OUTGROWS",
+        "AWAITING_ASSIGNMENT",
+        "READY_FOR_REVIEW"
+      ],
+      "name": "TRANSITIONS_TO"
+    },
+    {
+      "merged_from": [
+        "DETERMINES",
+        "MEASURES",
+        "CALCULATES",
+        "EVALUATED_BI_WEEKLY"
+      ],
+      "name": "MEASURES_OR_DETERMINES"
+    },
+    {
+      "merged_from": [
+        "DESCRIBES",
+        "DETAILS",
+        "INFORMS",
+        "INFORMATION_ABOUT"
+      ],
+      "name": "DESCRIBES_OR_INFORMS"
+    },
+    {
+      "merged_from": [
+        "DEDICATED_TO",
+        "TARGETS",
+        "FOCUSES_ON"
+      ],
+      "name": "FOCUSES_ON"
+    },
+    {
+      "merged_from": [
+        "EXPANDS",
+        "IMPROVE",
+        "MAINTAIN",
+        "PROMOTES",
+        "MAINTAINS",
+        "ACHIEVES",
+        "ENHANCES"
+      ],
+      "name": "IMPROVES_OR_MAINTAINS"
+    },
+    {
+      "merged_from": [
+        "IDENTIFIES_VULNERABILITIES",
+        "CONDUCTS_PENETRATION_TESTS",
+        "INVESTIGATED_IN",
+        "SUSCEPTIBLE_TO"
+      ],
+      "name": "ASSESSES_SECURITY"
+    },
+    {
+      "merged_from": [
+        "KICK_OFF_MEETING",
+        "WEEKLY_MEETING",
+        "PAIR_WORK_SESSION",
+        "WEEKLY_1_1",
+        "WALK_THROUGH_PROCESSES",
+        "IDENTIFY_PAIR_WORK_TOPICS"
+      ],
+      "name": "HAS_RECURRING_ACTIVITY"
+    },
+    {
+      "merged_from": [
+        "PROJECT_TASK_NEXT_0_2_WEEKS",
+        "PROJECT_TASK_WITHIN_NEXT_QUARTER",
+        "PRIORITIZED_BASED_ON_OKR_TIMELINE",
+        "PRIORITIZE",
+        "PRIORITIZES",
+        "IMMINENT_DUE_DATE",
+        "NEXT_FEW_WEEKS",
+        "NEXT_QUARTER",
+        "NEXT_YEAR"
+      ],
+      "name": "HAS_SCHEDULE_OR_PRIORITY"
+    },
+    {
+      "merged_from": [
+        "IF",
+        "ELSIF",
+        "ELSE"
+      ],
+      "name": "APPLIES_WHEN"
+    },
+    {
+      "merged_from": [
+        "IDENTIFY",
+        "INFORMS",
+        "MAINTAIN",
+        "REVIEW",
+        "GATHER_OUTPUT",
+        "INITIATE",
+        "TRIAGE",
+        "IMPORT",
+        "CONDUCTS",
+        "IDENTIFIES",
+        "GATHERS",
+        "ATTEMPTS",
+        "FACILITATES_AUDIT",
+        "PROVIDES_INSIGHT"
+      ],
+      "name": "PERFORMS_ACTIVITY"
+    }
+  ]
+}
