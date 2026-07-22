@@ -3,6 +3,11 @@ from collections import Counter
 from langchain_experimental.graph_transformers import LLMGraphTransformer
 from langchain_openai import ChatOpenAI
 from langchain_core.documents import Document
+from dotenv import load_dotenv
+import os
+
+load_dotenv(override=True)
+api_key = os.getenv("OPENAI_API_KEY")
 
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
@@ -30,6 +35,9 @@ transformer = LLMGraphTransformer(
     additional_instructions=additional_instructions,
     # no allowed_nodes / allowed_relationships yet — this pass is discovery only
 )
+with open("sample_200.json", "r", encoding="utf-8") as f:
+    sample = json.load(f)
+
 
 docs = [
     Document(page_content=c["text"], metadata={"chunk_id": c["metadata"]["chunk_id"]})
