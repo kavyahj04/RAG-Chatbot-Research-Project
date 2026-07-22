@@ -9,13 +9,16 @@ import time
 import json
 
 #SETUP
-load_dotenv(override = True)
+BASE_DIR = Path(__file__).resolve().parent.parent
+JSON_DIR = BASE_DIR / "json"
+
+load_dotenv(BASE_DIR / ".env", override = True)
 
 openai_key = os.getenv("OPENAI_API_KEY")
 
 openai = OpenAI()
 
-Docs_path = "security_doc"
+Docs_path = BASE_DIR / "security_doc"
 Chunk_size = 500
 Chunk_overlap = 50
 
@@ -327,7 +330,7 @@ def process_all_files(docs_path):
     print(f"\nTotal chunks across all files: {len(all_chunks)}")
     
     # save to JSON so we never need to regenerate
-    output_path = "chunks.json"
+    output_path = JSON_DIR / "chunks.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(all_chunks, f, indent=2, ensure_ascii=False)
     

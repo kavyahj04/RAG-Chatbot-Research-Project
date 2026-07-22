@@ -1,10 +1,13 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 from openai import OpenAI
 from pydantic import BaseModel
 from retriever import search
 
-load_dotenv(override = True)
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / ".env", override = True)
 client = OpenAI()
 
 class SubQuestions(BaseModel):

@@ -1,16 +1,20 @@
 import json
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv(override=True)
+BASE_DIR = Path(__file__).resolve().parent.parent
+JSON_DIR = BASE_DIR / "json"
+
+load_dotenv(BASE_DIR / ".env", override=True)
 client = OpenAI()
 EMBED_MODEL = "text-embedding-3-large"
 BATCH_SIZE = 100
 MAX_EMBED_TOKENS = 8000
 
 
-with open("chunks.json", "r", encoding="utf-8") as f:
+with open(JSON_DIR / "chunks.json", "r", encoding="utf-8") as f:
     chunks = json.load(f)
 
     print(f"Loaded {len(chunks)} chunks")
@@ -42,7 +46,7 @@ for i in range(0, len(chunks), BATCH_SIZE):
         })
     print(f"Embedded {min(i+BATCH_SIZE, len(chunks))}/{len(chunks)}")
 
-with open("embeddings.json", "w", encoding="utf-8") as f:
+with open(JSON_DIR / "embeddings.json", "w", encoding="utf-8") as f:
     json.dump(embeddings_data, f)
 
 print("Saved embeddings.json")

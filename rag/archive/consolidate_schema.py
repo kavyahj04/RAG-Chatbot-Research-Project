@@ -2,14 +2,18 @@ import json
 from openai import OpenAI
 
 from dotenv import load_dotenv
+from pathlib import Path
 import os
 
-load_dotenv(override=True)
+BASE_DIR = Path(__file__).resolve().parent.parent
+JSON_DIR = BASE_DIR / "json"
+
+load_dotenv(BASE_DIR / ".env", override=True)
 api_key = os.getenv("OPENAI_API_KEY")
 
 client = OpenAI()
 
-with open("raw_extraction_200.json", "r", encoding="utf-8") as f:
+with open(JSON_DIR / "raw_extraction_200.json", "r", encoding="utf-8") as f:
     raw = json.load(f)
 
 consolidation_schema = {
@@ -105,7 +109,7 @@ response = client.chat.completions.create(
 
 consolidated = json.loads(response.choices[0].message.content)
 
-with open("consolidated_schema.json", "w", encoding="utf-8") as f:
+with open(JSON_DIR / "consolidated_schema.json", "w", encoding="utf-8") as f:
     json.dump(consolidated, f, indent=2)
 
 print(f"Node types: {len(consolidated['node_types'])} (from {len(raw['node_types'])} raw)")

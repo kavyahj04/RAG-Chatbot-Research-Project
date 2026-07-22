@@ -3,8 +3,10 @@ rag/__pycache__/
 rag/*.pyc
 rag/.gradio/
 rag/.env
-rag/embeddings.json
-rag/chunks.json
+rag/json/embeddings.json
+rag/json/chunks.json
+rag/json/sample_200.json
+rag/json/raw_extraction_200.json
 rag/eval_results.json
 rag/qa_dataset.json
 frontend/

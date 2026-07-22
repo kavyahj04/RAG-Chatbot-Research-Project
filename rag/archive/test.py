@@ -1,6 +1,10 @@
 import json
+from pathlib import Path
 
-with open("consolidated_schema.json", "r", encoding="utf-8") as f:
+BASE_DIR = Path(__file__).resolve().parent.parent
+JSON_DIR = BASE_DIR / "json"
+
+with open(JSON_DIR / "consolidated_schema.json", "r", encoding="utf-8") as f:
     schema = json.load(f)
 
 for rel in schema["relationship_types"]:
@@ -13,5 +17,5 @@ for rel in schema["relationship_types"]:
         })
         break
 
-with open("consolidated_schema.json", "w", encoding="utf-8") as f:
+with open(JSON_DIR / "consolidated_schema.json", "w", encoding="utf-8") as f:
     json.dump(schema, f, indent=2)

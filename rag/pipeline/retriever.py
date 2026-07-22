@@ -1,18 +1,22 @@
 import json
-import numpy as np 
+import numpy as np
+from pathlib import Path
 from dotenv import load_dotenv
 from openai import OpenAI
 import os
 
-load_dotenv(override = True)
+BASE_DIR = Path(__file__).resolve().parent.parent
+JSON_DIR = BASE_DIR / "json"
+
+load_dotenv(BASE_DIR / ".env", override = True)
 api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI()
 EMBED_MODEL = "text-embedding-3-large"
 
-with open("chunks.json", "r", encoding="utf-8") as f:
+with open(JSON_DIR / "chunks.json", "r", encoding="utf-8") as f:
     chunks = json.load(f)
 
-with open("embeddings.json","r", encoding = "utf-8") as f:
+with open(JSON_DIR / "embeddings.json","r", encoding = "utf-8") as f:
     embeddings = json.load(f)
 
 chunk_index = {c["metadata"]["chunk_id"]:c for c in chunks}

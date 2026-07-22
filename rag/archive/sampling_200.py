@@ -1,5 +1,9 @@
 import json
 import random
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+JSON_DIR = BASE_DIR / "json"
 
 random.seed(42)
 
@@ -31,7 +35,7 @@ def keywords_in(chunk):
     return {kw for kw in ALL_KEYWORDS if kw in text}
 
 
-with open("chunks.json", "r", encoding="utf-8") as f:
+with open(JSON_DIR / "chunks.json", "r", encoding="utf-8") as f:
     all_chunks = json.load(f)
 
 eligible = [c for c in all_chunks if c["metadata"].get("token_count", 0) >= 40]
@@ -74,6 +78,6 @@ sample.extend(random.sample(remaining_pool, TOTAL - len(sample)))
 
 print(f"Final sample size: {len(sample)}")
 
-with open("sample_200.json", "w", encoding="utf-8") as f:
+with open(JSON_DIR / "sample_200.json", "w", encoding="utf-8") as f:
     json.dump(sample, f, indent=2, ensure_ascii=False)
 print("Saved sample_200.json")

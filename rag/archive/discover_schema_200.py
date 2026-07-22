@@ -4,9 +4,13 @@ from langchain_experimental.graph_transformers import LLMGraphTransformer
 from langchain_openai import ChatOpenAI
 from langchain_core.documents import Document
 from dotenv import load_dotenv
+from pathlib import Path
 import os
 
-load_dotenv(override=True)
+BASE_DIR = Path(__file__).resolve().parent.parent
+JSON_DIR = BASE_DIR / "json"
+
+load_dotenv(BASE_DIR / ".env", override=True)
 api_key = os.getenv("OPENAI_API_KEY")
 
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
@@ -35,7 +39,7 @@ transformer = LLMGraphTransformer(
     additional_instructions=additional_instructions,
     # no allowed_nodes / allowed_relationships yet — this pass is discovery only
 )
-with open("sample_200.json", "r", encoding="utf-8") as f:
+with open(JSON_DIR / "sample_200.json", "r", encoding="utf-8") as f:
     sample = json.load(f)
 
 
@@ -63,7 +67,7 @@ for t, count in rel_type_counts.most_common():
 
 # save full detail, not just counts — whoever consolidates this needs to see
 # actual node/relationship instances, not just aggregate labels
-with open("raw_extraction_200.json", "w", encoding="utf-8") as f:
+with open(JSON_DIR / "raw_extraction_200.json", "w", encoding="utf-8") as f:
     json.dump({
         "node_types": dict(node_type_counts),
         "relationship_types": dict(rel_type_counts),

@@ -8,8 +8,8 @@ rag/.gradio/
 # Generated RAG data (large, regenerate via chunking.py / embed_chunks.py / build_graph.py)
 # chroma_db/ and graph.pkl are tracked (needed at runtime by the deployed API, both under
 # GitHub's 100MB file limit). embeddings.json (127MB) is not — it's unused by the API.
-rag/embeddings.json
-rag/chunks.json
+rag/json/embeddings.json
+rag/json/chunks.json
 rag/eval_results.json
 rag/qa_dataset.json
 
